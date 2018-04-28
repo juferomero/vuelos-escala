@@ -16,10 +16,10 @@
                 </div>
               </a>-->
               <?php
-                $host = "172.16.7.78";
+                $host = "172.10.7.92";
                 $db = "prueba_julian";
-                $user = "Architect02";
-                $pw = "@DM1N1STR4D0R2016";
+                $user = "Architect05";
+                $pw = "P@ss0102";
                 $con = mysql_connect($host,$user,$pw)or die("Problema al conectar con el servidor");
                 mysql_set_charset('utf8', $con);
                 mysql_select_db($db,$con)or die("Problema al ingresar a la base de datos");
