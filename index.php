@@ -16,12 +16,12 @@
 <html>
   <head>
     <?php
-      $titulo = "Inicio";
+      $titulo = "Prueba Julian";
       include ('testFrontend/head.php');
       $xajax->printJavascript('nxajax'); //INVOCACION XAJAX MEDIANTE JAVASCRIPT
     ?>
   </head>
-  <body onload="xajax_Buscar(0,0)">
+  <body onLoad="xajax_Buscar(0,0)">
     <div class="col-lg-12">
       <div class="row">
         <?php
