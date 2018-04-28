@@ -5,9 +5,6 @@
 <link rel="stylesheet" href="frameworks/font-awesome-4.7.0/css/font-awesome.min.css"/>
 <script src="frameworks/jquery-ui-1.12.1/jquery-ui.js"></script>
 <script src="frameworks/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script src="highcharts/highcharts.js"></script>
-<script src="highcharts/exporting.js"></script>
-<script src="highcharts/data.js"></script>
 <title>Aerolinea-Escalas <?php echo $titulo;?></title>
 <style>
     .sidebar-search
