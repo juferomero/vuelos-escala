@@ -21,16 +21,16 @@
       $xajax->printJavascript('nxajax'); //INVOCACION XAJAX MEDIANTE JAVASCRIPT
     ?>
   </head>
-  <body onLoad="xajax_Buscar(0,0)">
+  <body onLoad="xajax_Buscar(0,0,0)">
     <div class="col-lg-12">
       <div class="row">
         <?php
           include ('testFrontend/menu.php');
         ?>
-        <div class="col-lg-8" style="padding-top: 5%">
+        <div class="col-md-8" style="padding-top: 5%">
           <div id="page-wrapper" style="min-height: 735px;">
             <div class="col-lg-12">
-              <div class="col-lg-12" id="ver"></div>
+              <div class="col-lg-12"></div>
               <div class="col-lg-12">
                 <div class="row">
                   <div class="panel panel-info">
@@ -38,10 +38,18 @@
                   </div>
                 </div>
               </div>
+              <div class="col-lg-12"></div>
+              <div class="col-lg-12">
+                <div class="row">
+                  <div class="panel panel-info">
+                    <div class="panel-body" id="Gestion2"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div><!--
   </body>
 </html>
