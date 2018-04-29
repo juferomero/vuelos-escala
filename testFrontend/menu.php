@@ -1,7 +1,7 @@
         <div class="col-lg-12" style="padding-left: 10%;color: white;background-color: #0073ea;font-size: 20px">
           <h1 class="page-header">Aerolinea-Escalas <?php echo $titulo;?></h1>
         </div>
-        <div class="col-md-2" style="padding-left: 0px;padding-top: 5%">
+        <div class="col-md-3" style="padding-left: 0px;padding-top: 5%">
           <div class="panel panel-success" style="margin-top:7px; max-height: 600px; overflow: auto">
             <div class="panel-body">
               <!--<a href="index.php">
@@ -34,7 +34,7 @@
               ?>
               <form action="javascript:void(0)" id="formulario" name="formulario">
                 <div class="col-md-8 bg-primary" style="border-radius:5px;width:80%;height: 30px;margin-left: 15%;margin-rigth: 15%">
-                  <label class="col-md-3" style="margin-top: 5px">Origen</label>
+                  <label class="col-md-10" style="margin-top: 5px">Ciudad Origen</label>
                 </div>
                 <div class="col-md-12" style="border-radius:5px;width:120%;height: 30px;margin-left: -10%;margin-top: 5%">
                   <select class="col-md-12" id="cdd_org" name="cdd_org" onchange="xajax_Buscar(1,xajax.getFormValues('formulario'),0)">
@@ -46,7 +46,7 @@
                 </div>
                 <div class="col-md-8">&nbsp;</div>
                 <div class="col-md-8 bg-primary" style="border-radius:5px;width:80%;height: 30px;margin-left: 15%;margin-rigth: 15%">
-                  <label class="col-md-3" style="margin-top: 5px">Destino</label>
+                  <label class="col-md-10" style="margin-top: 5px">Ciudad Destino</label>
                 </div>
                 <div class="col-md-12" style="border-radius:5px;width:120%;height: 30px;margin-left: -10%;margin-top: 5%">
                   <select class="col-md-12" id="cdd_dest" name="cdd_dest" onchange="xajax_Buscar(1,xajax.getFormValues('formulario'),0)">
@@ -55,6 +55,24 @@
                     echo $salida;
                     ?>
                   </select>
+                </div>
+                <div class="col-md-8">&nbsp;</div>
+                <div class="col-md-8 bg-primary" style="border-radius:5px;width:80%;height: 30px;margin-left: 15%;margin-rigth: 15%">
+                  <label class="col-md-10" style="margin-top: 5px">Fecha Inicial</label>
+                </div>
+                <div class="col-md-12" style="border-radius:5px;width:120%;height: 30px;margin-left: -10%;margin-top: 5%">
+                  <input type="date" id="fi" name="fi" class="col-md-12">
+                </div>
+                <div class="col-md-8">&nbsp;</div>
+                <div class="col-md-8 bg-primary" style="border-radius:5px;width:80%;height: 30px;margin-left: 15%;margin-rigth: 15%">
+                  <label class="col-md-10" style="margin-top: 5px">Fecha Final</label>
+                </div>
+                <div class="col-md-12" style="border-radius:5px;width:120%;height: 30px;margin-left: -10%;margin-top: 5%">
+                  <input type="date" id="ff" name="ff" class="col-md-12">
+                </div>
+                <div class="col-md-8">&nbsp;</div>
+                <div class="col-md-8 bg-success" style="border-radius:5px;width:80%;height: 30px;margin-left: 15%;margin-rigth: 15%" onclick="xajax_Buscar(0,xajax.getFormValues('formulario'),0)">
+                  <label class="col-md-3" style="margin-top: 5px">Buscar</label>
                 </div>
                 <div class="col-md-8">&nbsp;</div>
               </form>
