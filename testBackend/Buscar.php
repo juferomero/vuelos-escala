@@ -10,7 +10,6 @@
 	mysql_set_charset('utf8', $con);
 	mysql_select_db($db,$con)or die("Problema al ingresar a la base de datos");
     global $respuesta;
-	$add_sql = "";
 	if ($tipo==2)
 	{
 	  $sql_esc = mysql_query("SELECT f.fecha_salida, f.fecha_llegada, g.nombre AS ciudad_origen_escala, h.nombre AS ciudad_destino_escala FROM escalas AS f LEFT JOIN ciudades AS g ON g.id=f.ciudad_id_origen LEFT JOIN ciudades AS h ON h.id=f.ciudad_id_escala WHERE f.trayecto_id=".$id." ORDER BY f.fecha_salida");
@@ -41,20 +40,28 @@
 	}
 	else
 	{
+	  $add_sql = "";
+      $fi = $form["fi"];
+      $ff = $form["ff"];
+	  if ($fi=="" || $fi=="0" || $ff=="0" || $ff=="")
+	  {
+        $fi = date('Y-m-01');
+        $ff = date('Y-m-d');
+	  }
 	  if ($tipo==1)
 	  {
 	    $cdd_org = $form["cdd_org"];
 	    $cdd_dest = $form["cdd_dest"];
-	    if ($cdd_org!="" || $cdd_dest!="")
-		  $add_sql = "WHERE ";
+	    /*if ($cdd_org!="" || $cdd_dest!="")
+		  $add_sql = "WHERE ";*/
 	    if ($cdd_org!="")
-		  $add_sql .= "a.ciudad_origen_id=".$cdd_org." ";
-	    if ($cdd_org!="" && $cdd_dest!="")
-		  $add_sql .= "AND ";
+		  $add_sql .= "a.ciudad_origen_id=".$cdd_org." AND ";
+	    /*if ($cdd_org!="" && $cdd_dest!="")
+		  $add_sql .= "AND ";*/
 	    if ($cdd_dest!="")
-		  $add_sql .= "a.ciudad_destino_id=".$cdd_dest." ";
+		  $add_sql .= "a.ciudad_destino_id=".$cdd_dest." AND ";
 	  }
-	  $sql = mysql_query("SELECT a.id_trayectos, a.fecha_salida, a.duracion, b.nombre AS ciudad_origen, c.nombre AS ciudad_destino, e.denominacion FROM trayectos AS a INNER JOIN ciudades AS b ON a.ciudad_origen_id=b.id INNER JOIN ciudades AS c ON a.ciudad_destino_id=c.id INNER JOIN categorias_trayectos AS d ON a.id_trayectos=d.trayectos_id INNER JOIN categorias AS e ON d.categorias_id=e.id ".$add_sql."ORDER BY a.id_trayectos");
+	  $sql = mysql_query("SELECT a.id_trayectos, a.fecha_salida, a.duracion, b.nombre AS ciudad_origen, c.nombre AS ciudad_destino, e.denominacion FROM trayectos AS a INNER JOIN ciudades AS b ON a.ciudad_origen_id=b.id INNER JOIN ciudades AS c ON a.ciudad_destino_id=c.id INNER JOIN categorias_trayectos AS d ON a.id_trayectos=d.trayectos_id INNER JOIN categorias AS e ON d.categorias_id=e.id WHERE ".$add_sql." DATE(a.fecha_salida) BETWEEN '$fi' AND '$ff' ORDER BY a.id_trayectos");
       if (mysql_num_rows($sql)==0)
 	    $salida = '<h3 class="text-center text-success">Sin resultados</h3>';
       else
